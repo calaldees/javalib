@@ -1,0 +1,56 @@
+package Dune2.View.Tile2D;
+
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.image.ImageObserver;
+
+import Utils.StringIndexedValues;
+import Utils.Types.Sprite;
+
+import Tile.View.ViewRenderer;
+import Tile.View.MapFoundation.MapRenderer2D;
+
+import RTS.GameObject.Unit.RTSUnit;
+import RTS.GameObject.Unit.RTSUnitTank;
+import RTS.GameObject.Unit.RTSUnitTemplateStandard;
+import RTS.View.SpriteSet.SpriteSetSingle;
+
+
+
+public class Dune2UnitRenderer extends ViewRenderer<RTSUnit> {
+
+  public Dune2UnitRenderer() {super(RTSUnit.class);}
+
+  public void render(Graphics g, ImageObserver io, RTSUnit u, StringIndexedValues options) {
+    if (u == null) {return;}
+    if (u instanceof RTSUnitTank) {
+      RTSUnitTank tank = (RTSUnitTank)u;
+      tank.getTemplate().getSpriteSet().getSpriteTracks(tank.getDirectionTracks()).render(g, io);
+      //tank.getTemplate().getSpriteSet().getSprite(tank.getDirection()).render(g, io);
+    }
+    if (u.getTemplate() instanceof RTSUnitTemplateStandard) {
+      ((RTSUnitTemplateStandard)u.getTemplate()).getSpriteSet().getSprite(u.getDirection()).render(g, io);
+    }
+    if (u.getTemplate().getSpriteSet() instanceof SpriteSetSingle) {
+      Sprite s = ((SpriteSetSingle)u.getTemplate().getSpriteSet()).getSprite();
+      AffineTransform rotate_tranform = new AffineTransform();
+      //rotate_tranform.translate(screen_x_pos-(temp_car.getWidth()/(double)2), screen_y_pos-(temp_car.getHeight()/(double)2));
+      rotate_tranform.rotate(u.getDirection().getRadians(),s.getImageWidth()/2d,s.getImageHeight()/2d);
+      ((Graphics2D)g).drawImage(s.getImage(), rotate_tranform, io);
+    }
+    //smoke?
+    //fire?
+    //stelth?
+    //fireing?
+    //damaged?
+  }
+
+  public Dimension getComponentSize(RTSUnit u, StringIndexedValues options) {
+    return new Dimension(u.getTemplate().getSize().getWidth()  * MapRenderer2D.X_JUMP,
+                         u.getTemplate().getSize().getHeight() * MapRenderer2D.Y_JUMP);
+  }
+
+}

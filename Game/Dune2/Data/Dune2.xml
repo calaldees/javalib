@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Dune2>
+
+  <TILESET name="Dune2">
+    <TILE name="sand"                                />
+    <TILE name="rock"        minor_type="sand"       />
+    <TILE name="dune"        minor_type="sand"       />
+    <TILE name="mountain"    minor_type="rock"       />
+    <TILE name="spice_light" minor_type="sand"       />
+    <TILE name="spice_heavy" minor_type="spice_light"/>
+  </TILESET>
+  
+  <UNITS>
+    <UNIT name="trike"           type="normal" />
+    <UNIT name="quad"            type="normal" />
+    <UNIT name="tank_light"      type="tank"   />
+    <UNIT name="tank_rocket"     type="tank"   />
+    <UNIT name="tank_sonic"      type="tank"   />
+    <UNIT name="tank_seidge"     type="tank"   />
+    <UNIT name="tank_devistator" type="tank"   />
+    <UNIT name="harvester"       type="normal" />
+    <UNIT name="mcv"             type="normal" />
+    <UNIT name="carryall"        type="fly"    />
+    <UNIT name="orni"            type="fly"    />
+    <UNIT name="shuttle"         type="fly"    />
+  </UNITS>
+  
+  <STRUCTURES>
+    <STRUCTURE name="radar"          size="2,2" />
+    <STRUCTURE name="windfarm"       size="2,2" />
+    <STRUCTURE name="barracks"       size="2,2" />
+    <STRUCTURE name="wor"            size="2,2" />
+    <STRUCTURE name="verhicle_light" size="2,2" />
+    <STRUCTURE name="silo"           size="2,2" />
+    <STRUCTURE name="research"       size="2,2" />
+    <STRUCTURE name="airpad"         size="3,2" />
+    <STRUCTURE name="refinery"       size="3,2" />
+    <STRUCTURE name="verhicle_heavy" size="3,2" />
+    <STRUCTURE name="starport"       size="3,3" />
+    <STRUCTURE name="palace"         size="3,3" />
+  </STRUCTURES>
+  
+  <SOUNDS>
+    <SOUND file="harrive.wav" />
+    <SOUND file="hattack.wav" />
+    <SOUND file="DUNE15.MID"  />
+    <SOUND file="DUNE5.MID"   />
+    <SOUND file="AdlibOgg\INGAME01.ogg"/>
+    <SOUND file="AdlibOgg\ENEMY01.ogg"/>
+  </SOUNDS>
+  
+  <!-- 
+    <A href="Dune2View_2D.xml"/>
+    <?link: ./Dune2ViewSimple.xml?>
+  -->
+  
+  
+  <?link: ./Dune2ViewTile2D.xml?>
+  
+</Dune2>

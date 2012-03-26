@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<MATERIALS>
+  <MATERIAL name                        = "test"
+            density                     = "100"
+            limit_tension               = "110%"
+            limit_compression           =  "90%"
+            limit_angular               =   "0"
+            strength_compression_push   =   "2"
+            strength_compression_restore=   "1"
+            strength_tension_push       =   "2"
+            strength_tension_restore    =   "1"
+            strength_angular            =   "0"
+  />
+<!--
+  correction_angular;     //1=linear 1>stronger towards limit 1<weaker towards limit
+  correction_tension;
+  correction_compression;
+-->
+
+</MATERIALS>
+

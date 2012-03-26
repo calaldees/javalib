@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE UFO [
+  <!ENTITY default SYSTEM "UFODefaults.xml">
+  <!ENTITY terrain SYSTEM "Terrain/barn.xml">
+]>
+
+<UFO>
+  &default;
+  &terrain;
+  <!--  
+  <?link: ./UFODefaults.xml?>
+  <?link: ./Terrain/barn.xml?>
+  -->
+</UFO>
+<!--
+
+TO DO
+
+Windows
+Layout
+-Cascade? Tile?
+
+MapViewer
+-ZoomLevel
+
+MapEditor
+-Coursor
+-Selection
+-Zoom (to coursor)? Smoooth?
+
+Visable components
+-Single Layer
+-Left Walls
+-Right Walls
+-Objects
+
+Tools
+-Brush (pallate)
+-Undo
+-Select
+-Copy
+-Paste
+ -PasteMode
+ -Paste as new Map
+-Prefab
+-Small Hybrid components
+-Large Components
+ -Groups? Selection? Names? Preview?
+-Placeholders (for large components)
+-Auto Edge (dune2) + AutoTerrain(ufo)
+
+
+
+Save Selection As
+-New Map?
+-Collection Group?
+Replace
+-TileToReplace
+View Dependacnys
+-TileSets, placeholders
+
+
+MetaData
+-Name
+-Author
+-Description
+-Mission
+-Preview?
+-Start locations
+-Areas? Flags? Base's?
+
+-->
+

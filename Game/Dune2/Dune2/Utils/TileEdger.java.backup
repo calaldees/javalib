@@ -1,0 +1,213 @@
+package Dune2.Utils;
+
+
+import java.util.Stack;
+import Utils.Types.Integer.Point3D;
+import Utils.Types.Integer.Point3DImmutable;
+import Utils.Types.Integer.AbstractCube;
+import Utils.Types.Integer.CubeUpdatable;
+import Utils.XML.XMLLoad.LoadManager;
+import Tile.Map.MapFoundation;
+import Tile.Map.MapFoundationTile;
+import Dune2.terrain.Dune2Tile;
+
+
+public class TileEdger {
+  private TileEdger() {}
+  public static AbstractCube setTile(MapFoundation map, Point3D p, Dune2Tile.TileType tile_type) {
+    if (map==null || p==null || tile_type==null) {return null;}
+    TileEdgerProcessor tile_edge_processor = new TileEdgerProcessor(map,p,tile_type);
+    return tile_edge_processor.getRepaintArea();
+  }
+}
+
+  class EdgeFlags {
+    public boolean top;
+    public boolean bottom;
+    public boolean left;
+    public boolean right;
+    EdgeFlags() {}
+    EdgeFlags(boolean top, boolean bottom, boolean left, boolean right) {
+      this.top    = top;
+      this.bottom = bottom;
+      this.left   = left;
+      this.right  = right;
+    }
+    public boolean flagsEquals(Dune2Tile tile) {
+      return tile.getEdgeTop()   == top    &&
+             tile.getEdgeBottom()== bottom &&
+             tile.getEdgeLeft()  == left   &&
+             tile.getEdgeRight() == right;
+    }
+    public String toString() {return "TOP="+top+" BOTTOM="+bottom+" LEFT="+left+" RIGHT="+right;}
+  }
+
+  
+  
+class TileEdgerProcessor {
+  private final CubeUpdatable repaint_area;
+  
+  private enum EdgeAlgorithumMode {
+    GREEDY   (new EdgeFlags( true, true, true, true)),
+    RELUCTANT(new EdgeFlags(false,false,false,false));
+    private final EdgeFlags edge_flags;
+    EdgeAlgorithumMode(EdgeFlags edge_flags) {
+      this.edge_flags =  edge_flags;
+    }
+    //private EdgeFlags getEdgeFlags() {return edge_flags;}
+    public Dune2Tile lookupTileBase(Dune2Tile.TileType tile_type) {
+      return TileEdgerProcessor.lookupTile(tile_type,edge_flags);
+    }
+  }
+  
+  private enum Direction {
+    TOP   ( 0,-1),
+    BOTTOM( 0, 1),
+    LEFT  (-1, 0),
+    RIGHT ( 1, 0);
+    private Point3DImmutable point_modifyer;
+    Direction(int x, int y) {point_modifyer=Point3DImmutable.valueOf(x,y,0);}
+    private Point3DImmutable getPointModifyer() {return point_modifyer;}
+    Point3D            getNextPoint(Point3D p) {return getPointModifyer().add(p);}
+    boolean getEdge(Dune2Tile tile) {
+      switch (this) {
+        case TOP   : return tile.getEdgeTop();
+        case BOTTOM: return tile.getEdgeBottom();
+        case LEFT  : return tile.getEdgeLeft();
+        case RIGHT : return tile.getEdgeRight();
+      }
+      throw new IllegalStateException();
+    }
+    Direction getInverseDirection() {
+      switch (this) {
+        case TOP   : return BOTTOM;
+        case BOTTOM: return TOP;
+        case LEFT  : return RIGHT;
+        case RIGHT : return LEFT;
+      }
+      throw new IllegalStateException();
+    }
+    void setEdge(EdgeFlags edge_flags              ) {setEdge(edge_flags, true);}
+    void setEdge(EdgeFlags edge_flags, boolean flag) {
+      switch (this) {
+        case TOP   : edge_flags.top   = flag; return;
+        case BOTTOM: edge_flags.bottom= flag; return;
+        case LEFT  : edge_flags.left  = flag; return;
+        case RIGHT : edge_flags.right = flag; return;
+      }
+      throw new IllegalStateException("Direction Unknown: "+this);
+    }
+    
+  }
+  
+  private final EdgeAlgorithumMode mode        = EdgeAlgorithumMode.RELUCTANT;
+  private final Stack<Point3D>     check_stack = new Stack<Point3D>();
+  private final MapFoundation      map;
+  
+  public TileEdgerProcessor(MapFoundation map, Point3D p, Dune2Tile.TileType tile_type) {
+    //if (map      ==null) {throw new IllegalArgumentException();}
+    //if (p        ==null) {throw new IllegalArgumentException();}
+    //if (tile_type==null) {throw new IllegalArgumentException();}
+    this.map = map;
+    //System.out.println("Enter");
+    repaint_area = new CubeUpdatable(p);
+    //expandCubeToEncompusPoint(
+    setTile(p,tile_type);
+    while (!check_stack.empty()) {
+      //System.out.println("Stack size="+check_stack.size());
+      autoAdjustTile(check_stack.pop());
+    }
+  }
+  
+  private void setTile(Point3D p, Dune2Tile.TileType tile_type) {
+    if (tile_type==null) {return;}
+    for (Direction d : Direction.values()) {
+      Point3D   next_point = d.getNextPoint(p);
+      Dune2Tile tile       = getDune2Tile(next_point);
+      //if (tile!=null && tile.getType()!=Dune2Tile.TileType.SAND && tile.getType() != tile_type && tile_type!=null && tile.getType() != tile_type.getMinorType()) {
+      if (tile!=null && tile.getType()!=tile_type && tile.getType().getMinorType()!=tile_type && tile.getType().getMinorType()!=Dune2Tile.TileType.SAND) {
+        //tile.getType().getMinorType())
+        map.setLayer(mode.lookupTileBase(tile.getType().getMinorType()),next_point,Dune2Tile.tile_layer);
+        check_stack.push(next_point);
+      }
+    }
+    map.setLayer(mode.lookupTileBase(tile_type),p,Dune2Tile.tile_layer);
+    check_stack.push(p);
+  }
+  
+  private void autoAdjustTile(Point3D p) {
+    repaint_area.expandCubeToEncompusPoint(p);
+    //System.out.println("Checking: "+p);
+    Dune2Tile          current_tile      = getDune2Tile(p);
+    if (current_tile==null) {return;}
+    //Dune2Tile.TileType current_tile_type = ;
+    EdgeFlags edge_flags = new EdgeFlags();
+    for (Direction d : Direction.values()) {
+      Point3D   next_point    = d.getNextPoint(p);
+      Dune2Tile adjacent_tile = getDune2Tile(next_point);
+      if      (adjacent_tile==null) {d.setEdge(edge_flags);}
+      else if (current_tile.getType() == adjacent_tile.getType()) {
+        d.setEdge(edge_flags);
+        //If the adjacent tile is already set to connect to this one we dont need to add it to the check stack
+        if (!d.getInverseDirection().getEdge(adjacent_tile)) {check_stack.push(next_point);}
+      }
+      //the 2 adjacent tiles are not of the same type
+      else if (current_tile.getType().getMinorType() == adjacent_tile.getType().getMinorType() && !d.getInverseDirection().getEdge(adjacent_tile)) {}//d.setEdge(edge_flags,false);}
+      else if (current_tile.getType()                == adjacent_tile.getType().getMinorType()) {
+        d.setEdge(edge_flags);
+        if (d.getInverseDirection().getEdge(adjacent_tile)) {check_stack.push(next_point);}
+      }
+      else if (current_tile.getType().getMinorType() == adjacent_tile.getType()) {
+        //d.setEdge(edge_flags,false);  //edge flag is false by defalt so we dont need this line
+        if (!d.getInverseDirection().getEdge(adjacent_tile)) {check_stack.push(next_point);}
+      }
+      // else these 2 tiles cannot bound to each other and so the adjacent tile must be set to this tiles minor type
+      else {
+          //if (current_tile.getType().getMinorType()==null) {}
+        setTile(next_point,current_tile.getType().getMinorType());
+          
+      }
+    }
+    map.setLayer(lookupTile(current_tile.getType(), edge_flags),p,Dune2Tile.tile_layer);
+  }
+  
+  
+  //private static boolean doTilesJoin(Dune2Tile a, Direction d, Dune2Tile b) {
+  //  if (d.getEdgeType(a)==d.getInverseDirection().getEdgeType(b)) {return true;}
+  //  return false;
+  //}
+  AbstractCube getRepaintArea() {return repaint_area;}
+  
+  static Dune2Tile lookupTile(Dune2Tile.TileType tile_type, EdgeFlags edge_flags) {
+    for (Dune2Tile tile : LoadManager.getGroupList(Dune2Tile.class)) {
+      if (tile.getType()==tile_type && edge_flags.flagsEquals(tile)) {return tile;}
+    }
+    return LoadManager.getItem(Dune2Tile.class, "sand");
+    //throw new IllegalStateException("unable to locate tile:"+tile_type+" "+edge_flags);
+  }
+  /*
+  private Dune2Tile getBestFitTile(Point3D p, Dune2Tile.TileType tile_type) {
+    Dune2Tile.TileType type_top    = getDune2TileType(Direction.TOP.getNextPoint(p));
+    Dune2Tile.TileType type_bottom = getDune2TileType(Direction.BOTTOM.getNextPoint(p));
+    Dune2Tile.TileType type_left   = getDune2TileType(Direction.LEFT.getNextPoint(p));
+    Dune2Tile.TileType type_right  = getDune2TileType(Direction.RIGHT.getNextPoint(p));
+    if (type_top==type_bottom && type_top==type_left && type_top==type_right) {}
+    return null;
+  }
+   */
+  
+  //private Dune2Tile.TileType getDune2TileType(Point3D p) {
+  //  return getDune2Tile().getType();
+  //}
+ 
+  private Dune2Tile getDune2Tile(Point3D p) {
+    if (p==null) return null;
+    return (Dune2Tile) map.getLayer(p, Dune2Tile.tile_layer);
+  }
+  
+  private Dune2Tile.TileType getDune2TileType(Point3D p) {
+    Dune2Tile tile = getDune2Tile(p);
+    if (tile==null) {return null;}
+    return tile.getType();
+  }
+}

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<GUI>
+
+  <IMG SRC="MapEditIcons.gif">
+    <NameLookup name="New"        location="0,0"/>
+    <NameLookup name="Open"       location="1,0"/>
+    <NameLookup name="Save"       location="2,0"/>
+    <NameLookup name="Print"      location="3,0"/>
+    <NameLookup name="Sound List" location="4,0"/>
+    <NameLookup name="Undo"       location="0,1"/>
+    <NameLookup name="Redo"       location="1,1"/>
+    <NameLookup name="Cut"        location="2,1"/>
+    <NameLookup name="Copy"       location="3,1"/>
+    <NameLookup name="Paste"      location="4,1"/>
+    <NameLookup name="Erase"      location="5,1"/>
+    <NameLookup name="Point"      location="0,2"/>
+    <NameLookup name="Move"       location="1,2"/>
+    <NameLookup name="Select"     location="2,2"/>
+    <NameLookup name="Brush"      location="3,2"/>
+    <NameLookup name="Rubber"     location="4,2"/>
+    <NameLookup name="Fill"       location="5,2"/>
+
+    <NameLookup name="Hide Walls"   location="5,3"/>
+    <NameLookup name="Hide Objects" location="6,3"/>
+    <NameLookup name="Single Layer"         location="8,3"/>
+    <NameLookup name="Single Layer pressed" location="9,3"/>
+
+
+
+    <NameLookup name="Add"        location="0,4"/>
+    <NameLookup name="Add_all"    location="1,4"/>
+    <NameLookup name="Remove"     location="2,4"/>
+    <NameLookup name="Remove_all" location="3,4"/>
+
+    <NameLookup name="edit"       location="5,4"/>
+    <NameLookup name="Up Layer"   location="6,4"/>
+    <NameLookup name="Down Layer" location="7,4"/>
+  </IMG>
+
+
+  <JToolBar name="Standard">
+    <JToolBarItem name="New"/>
+    <JToolBarItem name="Open"/>
+    <JToolBarItem name="Save"/>
+    <JSeparator/>
+    <JToolBarItem name="Undo"/>
+    <JToolBarItem name="Redo"/>
+    <JSeparator/>
+    <JToolBarItem name="Cut"/>
+    <JToolBarItem name="Copy"/>
+    <JToolBarItem name="Paste"/>
+  </JToolBar>
+
+  <JToolBar name="Tools">
+    <!-- <JToolBarItem name="Point"  type="toggle" group="tool"/> -->
+    <JToolBarItem name="Brush"  type="toggle" group="tool"/>
+    <!-- <JToolBarItem name="Erase"  type="toggle" group="tool"/> -->
+    <JToolBarItem name="Select" type="toggle" group="tool"/>
+    <!-- <JToolBarItem name="Move"   type="toggle" group="tool"/> -->
+    <!-- <JToolBarItem name="Fill"   type="toggle" group="tool"/> -->
+  </JToolBar>
+
+  
+  <JMenuBar name="MapEdit">
+    <JMenu name="File">
+      <JMenuItem name="New"     shortcut="N"/>
+      <JMenuItem name="Open"    shortcut="O"/>
+      <JMenuItem name="Save"    shortcut="S"/>
+      <JMenuItem name="Save As"/>
+      <JSeparator/>
+      <JMenuItem name="Print"   shortcut="P"/>
+      <JSeparator/>
+      <JMenuItem name="Exit"/>
+    </JMenu>
+    <JMenu name="Edit">
+      <JMenuItem name="Undo" shortcut="Z"/>
+      <JMenuItem name="Redo" shortcut="Y"/>
+      <JSeparator/>
+      <JMenuItem name="Cut"   shortcut="X"/>
+      <JMenuItem name="Copy"  shortcut="C"/>
+      <JMenuItem name="Paste" shortcut="V"/>
+      <JMenuItem name="Paste (As New Map)"/>
+      <JSeparator/>
+      <JMenuItem name="Select All" shortcut="A"/>
+    </JMenu>
+    <JMenu name="View">
+      <JMenuViewSelector/>
+      <JMenuToolBar/>
+      <JSeparator/>
+      <JMenuItem name="Unit Viewer" />
+      <JMenuItem name="Structure Viewer" />
+      <JMenuItem name="Sound List"  />
+      <!--
+      <JMenu name="Toolbars">
+        <JMenuItem name="Standard" type="toggle"/>
+        <JMenuItem name="Tools"    type="toggle"/>
+      </JMenu>
+      -->
+    </JMenu>
+    <JMenu name="Options">
+      <JMenuLookAndFeel/>
+    </JMenu>
+  </JMenuBar>
+
+
+  <!-- <MenuGroup> -->
+    <MenuGroup name="map_saveable"   default_state="false" buttons="Save"                                  />
+    <MenuGroup name="map_selected"   default_state="false" buttons="Add,Save,Save As,Print,Cut,Copy"       />
+    <MenuGroup name="clipboard_full" default_state="false" buttons="Paste,Paste (Overlay),Paste (New Map)" />
+    <MenuGroup name="undo"           default_state="false" buttons="Undo,Empty Undo Buffers"               />
+    <MenuGroup name="redo"           default_state="false" buttons="Redo,Empty Undo Buffers"               />
+  <!-- </MenuGroup> -->
+
+
+  <JInputDialogs>
+
+    <JDialog name="New Map">
+      <JPanel name="Map Size">
+        <Border type="Titled" title="Map Size"/>
+        <TextField name="Width"  type="INTEGER" size="3" validation=">0"/>
+        <TextField name="Length" type="INTEGER" size="3" validation=">0"/>
+        <TextField name="Height" type="INTEGER" size="2" validation=">0"/>
+      </JPanel>
+      <TextField name="Another" group="Another Group" type="INTEGER"/>
+    </JDialog>
+
+    <JInputDialog name="Test">
+      <Group name="Test">
+        <TextField name="Text"  type="text"      size="10"/>
+        <ComboField name="Combo" type="combobox">
+          <Option>maybe</Option>
+          <Option>sometime</Option>
+          <Option>later</Option>
+        </ComboField>
+        <RadioField name="Radio" type="radio">
+          <Option>oi</Option>
+          <Option>ye</Option>
+          <Option>fo</Option>
+        </RadioField>
+      </Group>
+    </JInputDialog>
+
+  </JInputDialogs>
+
+</GUI>

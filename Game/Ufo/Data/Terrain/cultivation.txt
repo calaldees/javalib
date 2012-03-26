@@ -1,0 +1,237 @@
+BEGIN grass
+  ID     = 0
+  TYPE   = floor
+  DAMAGE = grass_damaged
+END grass
+
+BEGIN grass_damaged
+  ID   = 1
+  TYPE = floor
+  HIDE = true
+END grass_damaged
+
+BEGIN dirt
+  ID     = 2
+  TYPE   = floor
+  DAMAGE = dirt_damaged
+END dirt
+
+BEGIN straw
+  ID     = 3
+  TYPE   = floor
+  DAMAGE = straw_damaged
+END straw
+
+BEGIN wheat
+  ID     = 4
+  TYPE   = floor
+END wheat
+
+BEGIN grass_flower
+  ID     = 5
+  TYPE   = floor
+  DAMAGE = grass_damaged
+END grass_flower
+
+BEGIN carrot_patch
+  ID      = 6
+  TYPE    = floor
+  DAMAGED = dirt_damaged
+END carrot_patch
+
+BEGIN cabbage
+  ID     = 7
+  TYPE   = floor
+  DAMAGED = dirt_damaged
+END cabbage
+
+BEGIN carrots_many
+  ID     = 8
+  TYPE   = floor
+  DAMAGED = dirt_damaged
+END carrots_many
+
+BEGIN tree_apple
+  ID     = 9
+  TYPE   = object
+  HEIGHT = 20
+  DAMAGE = tree_damaged
+END tree_apple
+
+BEGIN dirt_damaged
+  ID = 10
+  TYPE = floor
+  HIDE = true
+END dirt_damaged
+
+BEGIN straw_damaged
+  ID   = 11
+  TYPE = floor
+  HIDE = true
+END straw_damaged
+
+BEGIN tree
+  ID     = 12
+  TYPE   = object
+  HEIGHT = 20
+  DAMAGE = tree_damaged
+END tree
+
+BEGIN tree_damaged
+  ID     = 13
+  TYPE   = object
+  HEIGHT = 10
+  HIDE   = true
+END tree_damaged
+
+BEGIN wall_left
+  ID     = 14
+  TYPE   = object
+  HEIGHT = 8
+  DAMAGE = wall_left_damaged
+END wall_left
+
+BEGIN wall_right
+  ID     = 15
+  TYPE   = object
+  HEIGHT = 8
+  DAMAGE = wall_right_damaged
+END wall_right
+
+BEGIN hedge_tall_left
+  ID     = 16
+  TYPE   = object
+  HEIGHT = 20
+  DAMAGE = hedge_left_damaged
+END hedge_tall_left
+
+BEGIN hedge_tall_right
+  ID     = 17
+  TYPE   = object
+  HEIGHT = 20
+  DAMAGE = hedge_right_damaged
+END hedge_tall_right
+
+BEGIN hedge_small_left
+  ID     = 18
+  TYPE   = object
+  HEIGHT = 8
+  DAMAGE = hedge_left_damaged
+END hedge_small_left
+
+BEGIN hedge_small_right
+  ID     = 19
+  TYPE   = object
+  HEIGHT = 8
+  DAMAGE = hedge_right_damaged
+END hedge_small_right
+
+BEGIN wall_post
+  ID     = 20
+  TYPE   = object
+  DAMAGE = wall_post_damaged
+END wall_post
+
+BEGIN hedge_tall_post
+  ID     = 21
+  TYPE   = object
+  DAMAGE = hedge_post_damaged
+  HEIGHT = 20
+END hedge_tall_post
+
+BEGIN hedge_small_post
+  ID     = 22
+  TYPE   = object
+  HEIGHT = 8
+  DAMAGE = hedge_post_damaged
+END hedge_small_post
+
+BEGIN fence_left_a
+  ID     = 23
+  TYPE   = left
+  DAMAGE = fence_left_a_damaged
+END fence_left_a
+
+BEGIN fence_left_b
+  ID     = 24
+  TYPE   = left
+  DAMAGE = fence_left_b_damaged
+END fence_left_b
+
+BEGIN fence_left_a_damaged
+  ID   = 25
+  TYPE = left
+  HIDE = true
+END fence_left_a_damaged
+
+BEGIN fence_left_b_damaged
+  ID   = 26
+  TYPE = left
+  HIDE = true
+END fence_left_b_damaged
+
+BEGIN fence_right_a
+  ID     = 27
+  TYPE   = right
+  DAMAGE = fence_right_a_damaged
+END fence_right_a
+
+BEGIN fence_right_b
+  ID     = 28
+  TYPE   = right
+  DAMAGE = fence_right_b_damaged
+END fence_right_b
+
+BEGIN fence_right_a_damaged
+  ID     = 29
+  TYPE   = right
+  HIDE = true
+END fence_right_a_damaged
+
+BEGIN fence_right_a_damaged
+  ID   = 30
+  TYPE = right
+  HIDE = true
+END fence_right_a_damaged
+
+BEGIN wall_left_damaged
+  ID   = 31
+  TYPE = object
+  HIDE = true
+  HEIGHT = 2
+END wall_left_damaged
+
+BEGIN wall_right_damaged
+  ID   = 32
+  TYPE = object
+  HIDE = true
+  HEIGHT = 2
+END wall_right_damaged
+
+BEGIN hedge_left_damaged
+  ID   = 33
+  TYPE = object
+  HIDE = true
+  HEIGHT = 2
+END hedge_left_damaged
+
+BEGIN hedge_right_damaged
+  ID     = 34
+  TYPE   = object
+  HIDE   = true
+  HEIGHT = 2
+END hedge_right_damaged
+
+BEGIN wall_post_damaged
+  ID     = 35
+  TYPE   = object
+  HIDE   = true
+  HEIGHT = 2
+END wall_post_damaged
+
+BEGIN hedge_post_damaged
+  ID     = 36
+  TYPE   = object
+  HIDE   = true
+  HEIGHT = 2
+END hedge_post_damaged

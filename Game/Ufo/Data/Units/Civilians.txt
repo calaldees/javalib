@@ -1,0 +1,126 @@
+#################################################################################
+#
+#
+#                                      CIVILIANS
+#
+#
+#################################################################################
+
+
+##########################################################
+#                    CIVILION MALE                       #
+##########################################################
+
+BEGIN Civilion_Male
+  Type = Civilian
+  BEGIN GRAPHICS
+    FILENAME = civilion_male.gif
+    Die = 360
+    BEGIN TORSO
+      stationary = 0
+      0 = 40
+      1 = 80
+      2 = 120
+      3 = 160
+      4 = 200
+      5 = 240
+      6 = 280
+      7 = 320      
+    END TORSO
+  END GRAPHICS
+END Civilion_Male
+
+##########################################################
+#                    CIVILION FEMALE                     #
+##########################################################
+
+BEGIN Civilion_Female
+  Type = Civilian
+  BEGIN GRAPHICS
+    FILENAME = civilion_female.gif
+    Die = 360
+    BEGIN TORSO
+      stationary = 0
+      0 = 40
+      1 = 80
+      2 = 120
+      3 = 160
+      4 = 200
+      5 = 240
+      6 = 280
+      7 = 320      
+    END TORSO
+  END GRAPHICS
+END Civilion_Female
+
+##########################################################
+#                    CIVILION MILITARY                   #
+##########################################################
+
+BEGIN Civilion_Millitary
+  Type = Civilian
+  BEGIN GRAPHICS
+    FILENAME = civilion_millitary.gif
+    Die = 360
+    BEGIN TORSO
+      stationary = 0
+      0 = 40
+      1 = 80
+      2 = 120
+      3 = 160
+      4 = 200
+      5 = 240
+      6 = 280
+      7 = 320      
+    END TORSO
+  END GRAPHICS
+END Civilion_Millitary
+
+##########################################################
+#                    CIVILION FAT                        #
+##########################################################
+
+BEGIN Civilion_Fat
+  Type = Civilian
+  Points for kill = 1
+  BEGIN GRAPHICS
+    FILENAME = civilian_fat.gif
+    Die = 360
+    BEGIN TORSO
+      stationary = 0
+      0 = 40
+      1 = 80
+      2 = 120
+      3 = 160
+      4 = 200
+      5 = 240
+      6 = 280
+      7 = 320      
+    END TORSO
+  END GRAPHICS
+END Civilion_Fat
+
+
+##########################################################
+#                 CIVILION ENGINEER                      #
+##########################################################
+
+BEGIN CIVILION_ENGINEER
+  Type = Civilian
+  Points for kill = 1
+  BEGIN GRAPHICS
+    FILENAME = civilion_engineer.gif
+    Die = 360
+    BEGIN TORSO
+      stationary = 0
+      0 = 40
+      1 = 80
+      2 = 120
+      3 = 160
+      4 = 200
+      5 = 240
+      6 = 280
+      7 = 320      
+    END TORSO
+  END GRAPHICS
+END CIVILION_ENGINEER

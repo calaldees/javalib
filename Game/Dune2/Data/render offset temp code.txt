@@ -1,0 +1,18 @@
+import Utils.Types.Integer.Point2D;
+import Utils.Types.Integer.Point2DImmutable;
+
+
+  private Point2D[] render_offset;   //There are some units that are so fat (like dune2 harvester), that they have to be drawn offset from the tiles 0,0 position
+
+
+
+  //This feels like a bit of a hack. I dont like the way I have to assume/cast a SpriteSetUnit object to get the directions.
+  //These directions will have to match the array size of the render_offset array or this could lead to odd results.
+  //Unsure if this is a best way to continue, I would idealy like this as part of the SpriteSet properties, but theoretically it may be possible for the same spriteset to be used on differnt tracks wich could be huge and therefore need a unit specific offset.
+  //arrr well ... if this works then leave it.
+  public Point2D getRenderOffset(Direction d) {
+    if (render_offset==null || render_offset.length==0) {return Point2DImmutable.ZERO;}
+    if (                       render_offset.length==1) {return render_offset[0];}
+    try                                                 {return render_offset[((SpriteSetUnit)getSpriteSet()).getDirectionGroup().getNearestDirectionIndex(d)];}
+    catch (Exception e)                                 {return Point2DImmutable.ZERO;}
+  }

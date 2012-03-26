@@ -1,0 +1,294 @@
+#######################################################################
+#
+#                        Conventional Weapons
+#
+#######################################################################
+
+
+##########
+# Pistol #
+##########
+
+BEGIN pistol_clip
+  type        = amunition
+  graphics    = 69,634
+  cost        = 70
+  weight      = 3
+  shots       = 12
+  damage      = 15 #REPLACE WITH REAL VALUE!!!! 
+  damage_type = AP
+END pistol_clip
+
+BEGIN pistol
+  type          = weapon
+  graphics      = 0,0
+  cost          = 800
+  weight        = 5
+  range         = ??
+  double handed = false
+  snap accuracy   = 60
+  snap time units = 18
+  aimed accuracy  = 78
+  aimed time units= 30
+  amunition       = pistol_clip
+END pistol
+
+
+#########
+# Rifel #
+#########
+
+BEGIN rifel_clip
+  type        = amunition
+  graphics    = 69,669
+  cost        = 200
+  weight      = 3
+  shots       = 20
+  damage      = 30
+  damage_type = AP
+END rifel_clip
+
+BEGIN rifel
+  type          = weapon
+  graphics      = 0,36
+  cost          = 3000
+  weight        = 8
+  range         = ??
+  double handed = true
+  auto accuracy   = 35
+  auto time_units = 35
+  snap accuracy   = 60
+  snap time units = 25
+  aimed accuracy  = 110
+  aimed time units= 80
+  amunition       = rifel_clip
+END rifel
+
+
+################
+# Heavy Cannon #
+################
+
+BEGIN heavy_cannon_ap
+  type        = amunition
+  graphics    = 69,806
+  cost        = 300
+  weight      = 6
+  shots       = 6
+  damage      = 56
+  damage_type = AP
+END heavy_cannon_ap
+
+BEGIN heavy_cannon_he
+  type        = amunition
+  graphics    = 69,840
+  cost        = 500
+  weight      = 6
+  shots       = 6
+  damage      = 52
+  damage_type = HE
+END heavy_cannon_he
+
+BEGIN heavy_cannon_i
+  type        = amunition
+  graphics    = 69,874
+  cost        = 400
+  weight      = 6
+  shots       = 6
+  damage      = 60
+  damage_type = I
+END heavy_cannon_i
+
+BEGIN heavy_cannon
+  type          = weapon
+  graphics      = 0,78
+  cost          = 6400
+  weight        = 18
+  range         = ??
+  double handed = true
+  snap accuracy   = 60
+  snap time units = 33
+  aimed accuracy  = 90
+  aimed time units= 80
+  amunition       = heavy_cannon_ap,heavy_cannon_he,heavy_cannon_i
+END heavy_cannon
+
+
+###############
+# Auto Cannon #
+###############
+
+BEGIN auto_cannon_ap
+  type        = amunition
+  graphics    = 69,704
+  cost        = 500
+  weight      = 5
+  shots       = 14
+  damage      = 42
+  damage_type = AP
+END auto_cannon_ap
+
+BEGIN auto_cannon_he
+  type        = amunition
+  graphics    = 69,738
+  cost        = 700
+  weight      = 5
+  shots       = 14
+  damage      = 44
+  damage_type = HE
+END auto_cannon_he
+
+BEGIN auto_cannon_i
+  type        = amunition
+  graphics    = 69,772
+  cost        = 650
+  weight      = 5
+  shots       = 14
+  damage      = 48
+  damage_type = I
+END auto_cannon_i
+
+BEGIN auto_cannon
+  type          = weapon
+  graphics      = 0,121
+  cost          = 13500
+  weight        = 19
+  range         = ??
+  double handed = true
+  auto accuracy   = 32
+  auto time_units = 40
+  snap accuracy   = 56
+  snap time units = 33
+  aimed accuracy  = 82
+  aimed time units= 80
+  amunition       = auto_cannon_ap,auto_cannon_he,auto_cannon_i
+END auto_cannon
+
+
+###################
+# Rocket Launcher #
+###################
+
+BEGIN small_rocket
+  type        = amunition
+  graphics    = 138,634
+  cost        = 600
+  weight      = 6
+  shots       = 1
+  damage      = 75
+  damage_type = HE
+END small_rocket
+
+BEGIN large_rocket
+  type        = amunition
+  graphics    = 138,679
+  cost        = 600
+  weight      = 8
+  shots       = 1
+  damage      = 100
+  damage_type = HE
+END large_rocket
+
+BEGIN incendiary_rocket
+  type        = amunition
+  graphics    = 138,725
+  cost        = 1200
+  weight      = 8
+  shots       = 1
+  damage      = 90
+  damage_type = I
+END incendiary_rocket
+
+BEGIN rocket_launcher
+  type          = weapon
+  graphics      = 0,165
+  cost          = 4000
+  weight        = 10
+  range         = ??
+  double handed = true
+  snap accuracy   = 55
+  snap time units = 45
+  aimed accuracy  = 115
+  aimed time units= 75
+  amunition       = small_rocket,large_rocket,incendiary_rocket
+END rocket_launcher
+
+
+
+
+#######################################################################
+#
+#                              Laser Weapons
+#
+#######################################################################
+
+
+BEGIN laser_pistol
+  type     = weapon
+  graphics = 0,211
+  cost     = 8000
+  weight   = 7
+  range    = ??
+  double handed   = false
+  auto accuracy   = 28
+  auto time_units = 25
+  snap accuracy   = 40
+  snap time units = 20
+  aimed accuracy  = 68
+  aimed time units= 55
+  BEGIN default_amunition
+    shots       = 500
+    damage      = 46
+    damage_type = LAZ
+  END default_amunition
+END laser_pistol
+
+
+BEGIN laser_rifel
+  type     = weapon
+  graphics = 0,247
+  cost     = 20000
+  weight   = 8
+  range    = ??
+  double handed   = true
+  auto accuracy   = 46
+  auto time_units = 34
+  snap accuracy   = 65
+  snap time units = 25
+  aimed accuracy  = 100
+  aimed time units= 50
+  BEGIN default_amunition
+    shots       = 500
+    damage      = 60
+    damage_type = LAZ
+  END default_amunition
+END laser_rifel
+
+
+BEGIN heavy_laser
+  type     = weapon
+  graphics = 0,291
+  cost     = 32000
+  weight   = 18
+  range    = ??
+  double handed   = true
+  snap accuracy   = 50
+  snap time units = 30
+  aimed accuracy  = 84
+  aimed time units= 75
+  BEGIN default_amunition
+    shots       = 500
+    damage      = 80
+    damage_type = LAZ
+  END default_amunition
+END heavy_laser
+
+
+
+#######################################################################
+#
+#                            Plazma Weapons
+#
+#######################################################################
+
+

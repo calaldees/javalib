@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<VIEW type="Tile2D" name="Dune2Original">
+  <X_JUMP size="16"/>
+  <Y_JUMP size="16"/>
+  <EDGEASSIST value="true"/>
+
+  <CURSORS>
+    <IMG SRC="Cursors.png"/>
+    <MousePointer name="default" pointer="0,1"/>
+    <MousePointer name="target"  pointer="1,1"/>
+    <MousePointer name="move"    pointer="2,1"/>
+    <Cursor2D     name="select"           cursor="0,0"/>
+    <SelectionHighlight2D name="highlight_green" in_bounds="1,0" top="4,0" bottom="5,0" left="3,0" right="6,0" />
+    <SelectionHighlight2D name="highlight_red"   in_bounds="2,0" top="4,0" bottom="5,0" left="3,0" right="6,0" />
+  </CURSORS>
+
+  <STRUCTURES2D>
+    <IMG SRC="structures.png"/>
+    <STRUCTURE2D name="dune2_radar"          name_model="radar"          normal= "4" building= "3" />
+    <STRUCTURE2D name="dune2_windfarm"       name_model="windfarm"       normal= "5" building= "3" />
+    <STRUCTURE2D name="dune2_barracks"       name_model="barracks"       normal= "6" building= "3" />
+    <STRUCTURE2D name="dune2_wor"            name_model="wor"            normal= "7" building= "3" />
+    <STRUCTURE2D name="dune2_verhicle_light" name_model="verhicle_light" normal= "8" building= "3" />
+    <STRUCTURE2D name="dune2_silo"           name_model="silo"           normal= "9" building= "3" />
+    <STRUCTURE2D name="dune2_research"       name_model="research"       normal="10" building= "3" />
+    <STRUCTURE2D name="dune2_airpad"         name_model="airpad"         normal="12" building="11" />
+    <STRUCTURE2D name="dune2_refinery"       name_model="refinery"       normal="13" building="11" working="14"/>
+    <STRUCTURE2D name="dune2_verhicle_heavy" name_model="verhicle_heavy" normal="15" building="11" working="16"/>
+    <STRUCTURE2D name="dune2_starport"       name_model="starport"       normal="19" building="18" />
+    <STRUCTURE2D name="dune2_palace"         name_model="palace"         normal="20" building="18" />
+  </STRUCTURES2D>
+
+  <UNITS2D>
+    <IMG SRC="units.png"/>
+    <UNIT2D       name="dune2_trike"           name_model="trike"      sprites="0"  />
+    <UNIT2D       name="dune2_quad"            name_model="quad"       sprites="1"  />
+    <UNIT2D       name="dune2_harvester"       name_model="harvester"  sprites="10" />
+    <UNIT2D       name="dune2_mcv"             name_model="mcv"        sprites="11" />
+    <UNIT2DTANK   name="dune2_tank_light"      name_model="tank_light"      tracks ="2" turret="3" />
+    <UNIT2DTANK   name="dune2_tank_rocket"     name_model="tank_rocket"     tracks ="2" turret="4" />
+    <UNIT2DTANK   name="dune2_tank_sonic"      name_model="tank_sonic"      tracks ="2" turret="5" />
+    <UNIT2DTANK   name="dune2_tank_seidge"     name_model="tank_seidge"     tracks ="6" turret="7" />
+    <UNIT2DTANK   name="dune2_tank_devistator" name_model="tank_devistator" tracks ="8" turret="9" />
+    <UNIT2DSINGLE name="dune2_carryall"        name_model="carryall" sprites="12"   sprite_mode="single_modes"  />
+    <UNIT2DSINGLE name="dune2_orni"            name_model="orni"     sprites="13"   sprite_mode="single_animate"/>
+    <UNIT2DSINGLE name="dune2_shuttle"         name_model="shuttle"  sprites="0,14" sprite_mode="single"        />
+  </UNITS2D>
+
+  <TILESET2D>
+    <IMG SRC="Terrain.gif"/>
+    <TILE2D sprite="0,0" name="sand"        /> <!-- these may also need a tile="" like the units have, because there may be multiple 2D renderers e.g Dune2 and Dune2000 -->
+    <TILE2D sprite="0,1" name="dune"        />
+    <TILE2D sprite="0,2" name="spice_heavy" />
+    <TILE2D sprite="0,3" name="spice_light" />
+    <TILE2D sprite="0,4" name="rock"        />
+    <TILE2D sprite="0,5" name="mountain"    />
+
+    <TILE2D sprite="1,1" name=       "dune_single" edge="dune,sand,sand,sand,sand,"/>
+    <TILE2D sprite="1,2" name="spice_heavy_single" edge="spice_heavy,spice_light,spice_light,spice_light,spice_light," />
+    <TILE2D sprite="1,3" name="spice_light_single" edge="spice_light,sand,sand,sand,sand," />
+    <TILE2D sprite="1,4" name=       "rock_single" edge="rock,sand,sand,sand,sand,"        />
+    <TILE2D sprite="1,5" name=   "mountain_single" edge="mountain,rock,rock,rock,rock,"    />
+
+    <TILE2D sprite="2,1" name=       "dune_left_right" edge="dune,sand,sand,dune,dune," />
+    <TILE2D sprite="2,2" name="spice_heavy_left_right" edge="spice_heavy,spice_light,spice_light,spice_heavy,spice_heavy,"/>
+    <TILE2D sprite="2,3" name="spice_light_left_right" edge="spice_light,sand,sand,spice_light,spice_light," />
+    <TILE2D sprite="2,4" name=       "rock_left_right" edge="rock,sand,sand,rock,rock," />
+    <TILE2D sprite="2,5" name=   "mountain_left_right" edge="mountain,rock,rock,mountain,mountain," />
+
+    <TILE2D sprite="3,1" name=       "dune_left" edge="dune,sand,sand,dune,sand," />
+    <TILE2D sprite="3,2" name="spice_heavy_left" edge="spice_heavy,spice_light,spice_light,spice_heavy,spice_light," />
+    <TILE2D sprite="3,3" name="spice_light_left" edge="spice_light,sand,sand,spice_light,sand," />
+    <TILE2D sprite="3,4" name=       "rock_left" edge="rock,sand,sand,rock,sand,"  />
+    <TILE2D sprite="3,5" name=   "mountain_left" edge="mountain,rock,rock,mountain,rock," />
+
+    <TILE2D sprite="4,1" name=       "dune_right" edge="dune,sand,sand,sand,dune,"  />
+    <TILE2D sprite="4,2" name="spice_heavy_right" edge="spice_heavy,spice_light,spice_light,spice_light,spice_heavy,"  />
+    <TILE2D sprite="4,3" name="spice_light_right" edge="spice_light,sand,sand,sand,spice_light,"  />
+    <TILE2D sprite="4,4" name=       "rock_right" edge="rock,sand,sand,sand,rock," />
+    <TILE2D sprite="4,5" name=   "mountain_right" edge="mountain,rock,rock,rock,mountain,"  />
+
+    <TILE2D sprite="5,1" name=       "dune_top" edge="dune,dune,sand,sand,sand," />
+    <TILE2D sprite="5,2" name="spice_heavy_top" edge="spice_heavy,spice_heavy,spice_light,spice_light,spice_light,"  />
+    <TILE2D sprite="5,3" name="spice_light_top" edge="spice_light,spice_light,sand,sand,sand," />
+    <TILE2D sprite="5,4" name=       "rock_top" edge="rock,rock,sand,sand,sand,"  />
+    <TILE2D sprite="5,5" name=   "mountain_top" edge="mountain,mountain,rock,rock,rock,"  />
+
+    <TILE2D sprite="6,1" name=       "dune_bottom" edge="dune,sand,dune,sand,sand," />
+    <TILE2D sprite="6,2" name="spice_heavy_bottom" edge="spice_heavy,spice_light,spice_heavy,spice_light,spice_light,"  />
+    <TILE2D sprite="6,3" name="spice_light_bottom" edge="spice_light,sand,spice_light,sand,sand,"  />
+    <TILE2D sprite="6,4" name=       "rock_bottom" edge="rock,sand,rock,sand,sand,"  />
+    <TILE2D sprite="6,5" name=   "mountain_bottom" edge="mountain,rock,mountain,rock,rock,"  />
+
+    <TILE2D sprite="7,1" name=       "dune_top_bottom" edge="dune,dune,dune,sand,sand,"  />
+    <TILE2D sprite="7,2" name="spice_heavy_top_bottom" edge="spice_heavy,spice_heavy,spice_heavy,spice_light,spice_light," />
+    <TILE2D sprite="7,3" name="spice_light_top_bottom" edge="spice_light,spice_light,spice_light,sand,sand," />
+    <TILE2D sprite="7,4" name=       "rock_top_bottom" edge="rock,rock,rock,sand,sand,"/>
+    <TILE2D sprite="7,5" name=   "mountain_top_bottom" edge="mountain,mountain,mountain,rock,rock," />
+
+    <TILE2D sprite="8,1" name=       "dune_top_right_bottom" edge="dune,dune,dune,sand,dune,"/>
+    <TILE2D sprite="8,2" name="spice_heavy_top_right_bottom" edge="spice_heavy,spice_heavy,spice_heavy,spice_light,spice_heavy," />
+    <TILE2D sprite="8,3" name="spice_light_top_right_bottom" edge="spice_light,spice_light,spice_light,sand,spice_light," />
+    <TILE2D sprite="8,4" name=       "rock_top_right_bottom" edge="rock,rock,rock,sand,rock," />
+    <TILE2D sprite="8,5" name=   "mountain_top_right_bottom" edge="mountain,mountain,mountain,rock,mountain," />
+
+    <TILE2D sprite="9,1" name=       "dune_top_left_bottom" edge="dune,dune,dune,dune,sand," />
+    <TILE2D sprite="9,2" name="spice_heavy_top_left_bottom" edge="spice_heavy,spice_heavy,spice_heavy,spice_heavy,spice_light,"  />
+    <TILE2D sprite="9,3" name="spice_light_top_left_bottom" edge="spice_light,spice_light,spice_light,spice_light,sand," />
+    <TILE2D sprite="9,4" name=       "rock_top_left_bottom" edge="rock,rock,rock,rock,sand," />
+    <TILE2D sprite="9,5" name=   "mountain_top_left_bottom" edge="mountain,mountain,mountain,mountain,rock," />
+
+    <TILE2D sprite="10,1" name=       "dune_left_bottom_right" edge="dune,sand," />
+    <TILE2D sprite="10,2" name="spice_heavy_left_bottom_right" edge="spice_heavy,spice_light,spice_heavy,spice_heavy,spice_heavy," />
+    <TILE2D sprite="10,3" name="spice_light_left_bottom_right" edge="spice_light,sand,spice_light,spice_light,spice_light," />
+    <TILE2D sprite="10,4" name=       "rock_left_bottom_right" edge="rock,sand,rock,rock,rock," />
+    <TILE2D sprite="10,5" name=   "mountain_left_bottom_right" edge="mountain,rock,mountain,mountain,mountain," />
+
+    <TILE2D sprite="11,1" name=       "dune_left_top_right" edge="dune,dune,sand,dune,dune," />
+    <TILE2D sprite="11,2" name="spice_heavy_left_top_right" edge="spice_heavy,spice_heavy,spice_light,spice_heavy,spice_heavy," />
+    <TILE2D sprite="11,3" name="spice_light_left_top_right" edge="spice_light,spice_light,sand,spice_light,spice_light," />
+    <TILE2D sprite="11,4" name=       "rock_left_top_right" edge="rock,rock,sand,rock,rock," />
+    <TILE2D sprite="11,5" name=   "mountain_left_top_right" edge="mountain,mountain,rock,mountain,mountain" />
+
+    <TILE2D sprite="12,1" name=       "dune_bottom_right" edge="dune,sand,dune,sand,dune," />
+    <TILE2D sprite="12,2" name="spice_heavy_bottom_right" edge="spice_heavy,spice_light,spice_heavy,spice_light,spice_heavy" />
+    <TILE2D sprite="12,3" name="spice_light_bottom_right" edge="spice_light,sand,spice_light,sand,spice_light," />
+    <TILE2D sprite="12,4" name=       "rock_bottom_right" edge="rock,sand,rock,sand,rock," />
+    <TILE2D sprite="12,5" name=   "mountain_bottom_right" edge="mountain,rock,mountain,rock,mountain," />
+
+    <TILE2D sprite="13,1" name=       "dune_top_left" edge="dune,dune,sand,dune,sand," />
+    <TILE2D sprite="13,2" name="spice_heavy_top_left" edge="spice_heavy,spice_heavy,spice_light,spice_heavy,spice_light," />
+    <TILE2D sprite="13,3" name="spice_light_top_left" edge="spice_light,spice_light,sand,spice_light,sand," />
+    <TILE2D sprite="13,4" name=       "rock_top_left" edge="rock,rock,sand,rock,sand," />
+    <TILE2D sprite="13,5" name=   "mountain_top_left" edge="mountain,mountain,rock,mountain,rock," />
+
+    <TILE2D sprite="14,1" name=       "dune_bottom_left" edge="dune,sand,dune,dune,sand," />
+    <TILE2D sprite="14,2" name="spice_heavy_bottom_left" edge="spice_heavy,spice_light,spice_heavy,spice_heavy,spice_light," />
+    <TILE2D sprite="14,3" name="spice_light_bottom_left" edge="spice_light,sand,spice_light,spice_light,sand," />
+    <TILE2D sprite="14,4" name=       "rock_bottom_left" edge="rock,sand,rock,rock,sand," />
+    <TILE2D sprite="14,5" name=   "mountain_bottom_left" edge="mountain,rock,mountain,mountain,rock," />
+
+    <TILE2D sprite="15,1" name=       "dune_top_right" edge="dune,dune,sand,sand,dune," />
+    <TILE2D sprite="15,2" name="spice_heavy_top_right" edge="spice_heavy,spice_heavy,spice_light,spice_light,spice_heavy," />
+    <TILE2D sprite="15,3" name="spice_light_top_right" edge="spice_light,spice_light,sand,sand,spice_light," />
+    <TILE2D sprite="15,4" name=       "rock_top_right" edge="rock,rock,sand,sand,rock," />
+    <TILE2D sprite="15,5" name=   "mountain_top_right" edge="mountain,mountain,rock,rock,mountain," />
+  </TILESET2D>
+</VIEW>

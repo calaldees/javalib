@@ -1,0 +1,1 @@
+javac *.java ./GameLib/*.java ./GameLib/Net/*.java ./GameLib/GameFrameComponents/*.java

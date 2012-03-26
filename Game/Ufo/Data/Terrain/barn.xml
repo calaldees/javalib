@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<TILESET name="Barn">
+  <IMG SRC="barn.gif"/>
+  <TILE id="0"  name="barn_wood_floor"              type="floor"/>
+  <TILE id="1"  name="barn_straw_floor"             type="floor"/>
+  <TILE id="2"  name="barn_metal_roof"              type="floor"/>
+  <TILE id="3"  name="barn_hay_bale_1"              type="object" height="10"/>
+  <TILE id="4"  name="barn_hay_bale_2"              type="object" height="10"/>
+  <TILE id="5"  name="barn_wood_wall_right"         type="right"  damage="barn_wood_right_broken"/>
+  <TILE id="6"  name="barn_wood_wall_left"          type="left"   damage="barn_wood_left_broken" />
+  <TILE id="7"  name="barn_wood_window_wall_right"  type="right"/>
+  <TILE id="8"  name="barn_wood_window_wall_left"   type="left"/>
+
+  <TILE id="10" name="barn_brick_wall_right"        type="right"/>
+  <TILE id="11" name="barn_brick_wall_left"         type="left"/>
+  <TILE id="12" name="barn_brick_wall_window_right" type="right"/>
+  <TILE id="13" name="barn_brick_wall_window_left"  type="left"/>
+
+  <TILE id="15" name="barn_stair_bottom"            type="object"  hide="true" height="10"/>
+  <TILE id="16" name="barn_stair_top"               type="object"  hide="true" height="20"/>
+  <TILE id="17" name="barn_door_left"               type="left"    damage="barn_door_left_broken"/>
+  <TILE id="18" name="barn_door_right"              type="right"   damage="barn_door_right_broken"/>
+  <TILE id="19" name="barn_stone_floor"             type="floor"   damage="barn_stone_floor_damaged"/>
+  <TILE id="20" name="barn_metal_floor_2"           type="floor"   />
+  <TILE id="21" name="barn_wood_right_broken"       type="right"   hide="true"/>
+  <TILE id="22" name="barn_wood_left_broken"        type="left"    hide="true"/>
+  <TILE id="23" name="barn_brick_right_broken"      type="right"   hide="true"/>
+  <TILE id="24" name="barn_brick_left_broken"       type="left"    hide="true"/>
+  <TILE id="25" name="barn_door_left_broken"        type="left"    hide="true"/>
+  <TILE id="26" name="barn_door_right_broken"       type="right"   hide="true"/>
+  <TILE id="27" name="barn_stone_floor_damaged"     type="floor"   hide="true"/>
+  <TILE id="28" name="barn_wood_floor_damaged"      type="floor"   hide="true"/>
+  
+  <MAP name="barn_stairs_left">
+    <MAPFOUNDATION size="1,2,1"/>
+    <MAPTILE location="0,0,0"><FIND type="TILE" name="barn_stair_top"    /></MAPTILE>
+    <MAPTILE location="0,1,0"><FIND type="TILE" name="barn_stair_bottom" /></MAPTILE>
+  </MAP>
+
+  <OUTLINE name="barn_wood"  top_right="barn_wood_wall_right"  bottom_left="barn_wood_wall_right"  top_left="barn_wood_wall_left"  bottom_right="barn_wood_wall_left"  floor_base="barn_straw_floor" floor="barn_wood_floor" celing="barn_metal_roof"   />
+  <OUTLINE name="barn_brick" top_right="barn_brick_wall_right" bottom_left="barn_brick_wall_right" top_left="barn_brick_wall_left" bottom_right="barn_brick_wall_left" floor_base="barn_stone_floor" floor="barn_wood_floor" celing="barn_metal_floor_2"/>
+  
+</TILESET>
+

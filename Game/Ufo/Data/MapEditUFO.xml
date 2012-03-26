@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<!DOCTYPE MapEditUFO [
+  <!ENTITY UFO        SYSTEM "UFO.xml">
+  <!ENTITY MapEditGUI SYSTEM "../../../Tools/MapEdit/Config/MapEditGUIIsometric.xml">
+]>
+-->
+<UFOMapEdit>
+  
+  
+  
+    
+  
+  <?link: ./UFO.xml?>
+  <?link: ./../../../Tools/MapEdit/Config/MapEditGUIIsometric.xml?>
+  <!--
+  &MapEditGUI;
+  <JMenuItem name="New" text="MOOOSE"/>
+  -->
+  
+</UFOMapEdit>

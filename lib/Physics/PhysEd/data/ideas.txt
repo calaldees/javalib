@@ -1,0 +1,43 @@
+Physics Ideas 
+-------------
+
+Read Materials from XML (read %)
+
+Considerations Multiple Thread? (multiple processors to run one HUGE simulation)
+
+set size simulations (use of scrollbars)
+
+Angular Correction
+Strength Correction
+
+save sim to XML
+read sim from XML
+
+View
+----
+Multiple views of single simulation
+Full Screen
+
+Editor
+------
+Select
+Copy
+Paste
+Undo
+
+Tools
+-----
+Material (Selector/Editor) -real time
+
+
+Window Menu
+-----------
+Tools separated + can be draged around edges (toolbar behaviour)
+New View
+
+
+Renderers
+---------
+Basic
+Editor Grid (and snap to grid)
+

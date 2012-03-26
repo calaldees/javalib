@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<UNIT name="xcom1">
+
+  <INVENTORY>
+    --ss---ss---ppp-
+    ------------ppp-
+    -11-----22--ppp-
+    -11--x--22------
+    -11-----22-bbbb-
+    -----------b--b-
+    -ll-----ll------
+  </INVENTORY>
+
+  <SPRITESET>
+    <IMG SRC="xcom_noarmor_1.gif"/>
+    <BIG>
+      <DEAD  cord="223,840"/>
+      <HEAD  cord="115,880"/>
+      <TORSO cord="  0,880" offset="0,-5"/>
+      <LEGS  cord=" 54,880"/>
+      <RIGHT cord="104,880" offset="-2,18"/>
+    </BIG>
+    <DIE>840</DIE>
+    <HEAD></HEAD>
+    <TORSO row="120"/>
+    <ARM_RIGHT>
+      <FREE   row="0"/>
+      <SINGLE row="680"/>
+      <DOUBLE row="760"/>
+      <DOUBLE_SHOOT row="800"/>
+      <FREE direction="0" row="160"/>
+      <FREE direction="1" row="240"/>
+      <FREE direction="2" row="320"/>
+      <FREE direction="3" row="400"/>
+      <FREE direction="4" row="480"/>
+      <FREE direction="5" row="520"/>
+      <FREE direction="6" row="560"/>
+      <FREE direction="7" row="600"/>
+    </ARM_RIGHT>
+    <ARM_LEFT convert_arm="true">
+      <DOUBLE row="720"/>
+    </ARM_LEFT>
+    <LEGS>
+      <STAND row="40"/>
+      <CROUCHED   row="80"/>
+      <STAND_ANIMATED direction="0" row="200"/>
+      <STAND_ANIMATED direction="1" row="280"/>
+      <STAND_ANIMATED direction="2" row="360"/>
+      <STAND_ANIMATED direction="3" row="440"/>
+      <STAND_ANIMATED direction="4" row="640"/>
+    </LEGS>
+    <ANIMATION_OFFSET>
+      <FRAME frame="0" offset="0,0"/>
+      <FRAME frame="1" offset="0,1"/>
+      <FRAME frame="2" offset="0,0"/>
+      <FRAME frame="3" offset="0,-1"/>
+      <FRAME frame="4" offset="0,0"/>
+      <FRAME frame="5" offset="0,1"/>
+      <FRAME frame="6" offset="0,0"/>
+      <FRAME frame="7" offset="0,-1"/>
+      <FRAME frame="8" offset="0,0"/>
+      <OFFSET_ANIMATED_ARMS value="false"/>
+    </ANIMATION_OFFSET>
+  </SPRITESET>
+
+</UNIT>
+
+<!--
+##########################################################
+#                    XCOM No-Armor 2                     #
+##########################################################
+
+BEGIN XCOM2
+  Type = xcom
+  BEGIN GRAPHICS
+    FILENAME = xcom_noarmor_2.gif
+    BEGIN TORSO
+      stationary = 0
+    END TORSO
+    BEGIN LEFT_ARM
+      link = xcom1
+    END LEFT_ARM
+    BEGIN RIGHT_ARM
+      link = xcom1
+    END RIGHT_ARM
+    BEGIN LEGS
+      link = xcom1
+    END LEGS
+    BEGIN ANIMATION_OFFSET
+      link = xcom1
+    END ANIMATION_OFFSET
+  END GRAPHICS
+END XCOM2
+-->

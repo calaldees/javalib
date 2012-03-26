@@ -1,0 +1,320 @@
+# UFO Remake
+# Units File
+# Version 0.02
+
+#################################################################################
+#
+#
+#                                       X-COM
+#
+#
+#################################################################################
+
+BEGIN XCOM1
+
+  BEGIN INVENTORY
+    BEGIN block-p
+      name     = backpack
+      put time = 14
+      get time = 8
+    END block-p
+    BEGIN block-b
+      name     = belt
+      put time = 8
+      get time = 4
+    END block-b
+    BEGIN block-s
+      name     = sholder
+      put time = 10
+      get time = 3
+    END block-s
+    BEGIN block-l
+      name     = leg
+      put time = 10
+      get time = 3
+    END block-l
+    BEGIN block-1
+      name     = weapon1
+      put time = 0
+      get time = 0
+      useable id = 1
+    END block-1
+    BEGIN block-2
+      name     = weapon2
+      put time = 0
+      get time = 0
+      useable id = 2
+    END block-2
+    line-1 = --ss---ss---ppp-
+    line-2 = ------------ppp-
+    line-3 = -11-----22--ppp-
+    line-4 = -11--x--22------
+    line-5 = -11-----22 bbbb-
+    line-6 = -----------b--b-
+    line-7 = -ll-----ll------
+  END INVENTORY
+
+  BEGIN GRAPHICS
+    FILENAME = xcom_noarmor_1.gif
+    BEGIN BIG
+      dead  = 223,840
+      head  = 115,880
+      torso =   0,880
+      legs  =  54,880
+      right = 104,880
+      right_offset = -2,18
+      torso_offset = 0,-5
+    END BIG
+    Die  = 840
+    Head =
+    BEGIN TORSO
+      stationary = 120
+    END TORSO
+    BEGIN RIGHT_ARM
+      Free = 0
+      Single = 680
+      Double = 760
+      DoubleShoot = 800
+      0 = 160
+      1 = 240
+      2 = 320
+      3 = 400
+      4 = 480
+      5 = 520
+      6 = 560
+      7 = 600
+    END RIGHT_ARM
+    BEGIN LEFT_ARM
+      Double = 720
+      convert_arm = true
+    END LEFT_ARM
+    BEGIN LEGS
+      stationary = 40
+      crouched = 80
+      0 = 200
+      1 = 280
+      2 = 360
+      3 = 440
+      4 = 640
+    END LEGS
+    BEGIN ANIMATION_OFFSET
+      0 = 0,0
+      1 = 0,1
+      2 = 0,0
+      3 = 0,-1
+      4 = 0,0
+      5 = 0,1
+      6 = 0,0
+      7 = 0,-1
+      8 = 0,0
+      offset_animated_arms = false
+    END ANIMATION_OFFSET
+  END GRAPHICS
+END XCOM1
+
+
+##########################################################
+#                    XCOM No-Armor 2                     #
+##########################################################
+
+BEGIN XCOM2
+  Type = xcom
+  BEGIN GRAPHICS
+    FILENAME = xcom_noarmor_2.gif
+    BEGIN TORSO
+      stationary = 0
+    END TORSO
+    BEGIN LEFT_ARM
+      link = xcom1
+    END LEFT_ARM
+    BEGIN RIGHT_ARM
+      link = xcom1
+    END RIGHT_ARM
+    BEGIN LEGS
+      link = xcom1
+    END LEGS
+    BEGIN ANIMATION_OFFSET
+      link = xcom1
+    END ANIMATION_OFFSET
+  END GRAPHICS
+END XCOM2
+
+
+##########################################################
+#                 XCOM Personal Armor 1                  #
+##########################################################
+
+BEGIN XCOM_PERSONAL_ARMOR_1
+  Type = Xcom
+  BEGIN GRAPHICS
+    FILENAME = xcom_armor1_1.gif
+    Die = 1320
+    BEGIN TORSO
+      stationary = 160
+    END TORSO
+    BEGIN LEFT_ARM
+      Free = 0
+      Single = 1160
+      Double = 1240
+      0 = 200
+      1 = 320
+      2 = 440
+      3 = 560
+      4 = 680
+      5 = 800
+      6 = 920
+      7 = 1040
+    END LEFT_ARM
+    BEGIN RIGHT_ARM
+      Free = 40
+      Single = 1200
+      Double = 1280
+      0 = 240
+      1 = 360
+      2 = 480
+      3 = 600
+      4 = 720
+      5 = 840
+      6 = 960
+      7 = 1080
+    END RIGHT_ARM
+    BEGIN LEGS
+      stationary = 80
+      crouched = 120
+      0 = 280
+      1 = 400
+      2 = 520
+      3 = 640
+      4 = 760
+      5 = 880
+      6 = 1000
+      7 = 1120
+    END LEGS
+    BEGIN ANIMATION_OFFSET
+      link = xcom1
+    END ANIMATION_OFFSET
+  END GRAPHICS
+END XCOM_PERSONAL_ARMOR_1
+
+
+##########################################################
+#                 XCOM Personal Armor 2                  #
+##########################################################
+
+
+BEGIN XCOM_PERSONAL_ARMOR_2
+  Type = xcom
+  BEGIN GRAPHICS
+    FILENAME = xcom_armor1_2.gif
+    BEGIN TORSO
+      stationary = 0
+    END TORSO
+    BEGIN LEFT_ARM
+      link = xcom_personal_armor_1
+    END LEFT_ARM
+    BEGIN RIGHT_ARM
+      link = xcom_personal_armor_1
+    END RIGHT_ARM
+    BEGIN LEGS
+      link = xcom_personal_armor_1
+    END LEGS
+    BEGIN ANIMATION_OFFSET
+      link = xcom_personal_armor_1
+    END ANIMATION_OFFSET
+  END GRAPHICS
+END XCOM_PERSONAL_ARMOR_2
+
+
+
+##########################################################
+#                    XCOM Power Suite                    #
+##########################################################
+
+BEGIN XCOM_POWER_SUITE
+  BEGIN GRAPHICS
+    FILENAME = xcom_power_suite.gif
+    Die = 1320
+    Head =
+    BEGIN TORSO
+      stationary = 160
+    END TORSO
+    BEGIN LEFT_ARM
+      Free = 0
+      Single = 1160
+      Double = 1240
+      0 = 200
+      1 = 320
+      2 = 440
+      3 = 560
+      4 = 680
+      5 = 800
+      6 = 920
+      7 = 1040
+    END LEFT_ARM
+    BEGIN RIGHT_ARM
+      Free = 40
+      Single = 1200
+      Double = 1280
+      0 = 240
+      1 = 360
+      2 = 480
+      3 = 600
+      4 = 720
+      5 = 840
+      6 = 960
+      7 = 1080
+    END RIGHT_ARM
+    BEGIN LEGS
+      stationary = 80
+      crouched = 120
+      0 = 280
+      1 = 400
+      2 = 520
+      3 = 640
+      4 = 760
+      5 = 880
+      6 = 1000
+      7 = 1120
+    END LEGS
+    BEGIN ANIMATION_OFFSET
+      link = xcom1
+    END ANIMATION_OFFSET
+  END GRAPHICS
+END XCOM_POWER_SUITE
+
+
+
+##########################################################
+#                   XCOM Flying Suite                    #
+##########################################################
+
+
+BEGIN XCOM_FLYING_SUITE
+  BEGIN GRAPHICS
+    FILENAME = xcom_flying_suite.gif
+    Head =
+    BEGIN TORSO
+      stationary = 0
+    END TORSO
+    BEGIN LEFT_ARM
+      link = xcom_power_suite
+    END LEFT_ARM
+    BEGIN RIGHT_ARM
+      link = xcom_power_suite
+    END RIGHT_ARM
+    BEGIN LEGS
+      link = xcom_power_suite
+    END LEGS
+    BEGIN ANIMATION_OFFSET
+      0 = 0,0
+      1 = 0,1
+      2 = 0,0
+      3 = 0,-1
+      4 = 0,0
+      5 = 0,1
+      6 = 0,0
+      7 = 0,-1
+      8 = 0,0
+    END ANIMATION_OFFSET
+  END GRAPHICS
+END XCOM_FLYING_SUITE

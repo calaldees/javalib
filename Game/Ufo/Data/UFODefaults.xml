@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<UFO_DEFAULTS>
+  
+  <CONFIG>
+    <X_JUMP size="16"/>
+    <Y_JUMP size="8"/>
+    <Z_JUMP size="24"/>
+    <!--
+    <X_SIZE size="32"/>  For isometric games =  2 * X_JUMP         
+    <Y_SIZE size="40"/>  For isometric games = (2 * Y_JUMP) + Z_JUMP
+    -->
+    <MAX_DISPLAYABLE_LAYERS layers="4"/>
+  </CONFIG>
+  
+  <CURSORS>
+    <IMG SRC="cursors.png"/>
+    <!-- <MousePointer    name="default" location="5,2"/> -->
+    <CursorIsometric name="default" front="3" back="0"/>
+    <CursorIsometric name="hollow"  front="5" back="2"/>
+    <SelectionHighlightIsometric name="select" top_left="1,2" top_right="2,2" bottom_left="3,2" bottom_right="4,2" celling="6,2" floor="5,2" />
+  </CURSORS>
+  
+  <INVENTORY_BLOCKS>
+    <INVENTORY_BLOCK id="p" name="backpack" put="14" get="8" />
+    <INVENTORY_BLOCK id="b" name="belt"     put= "8" get="4" />
+    <INVENTORY_BLOCK id="s" name="sholder"  put="10" get="3" />
+    <INVENTORY_BLOCK id="l" name="leg"      put="10" get="3" />
+    <INVENTORY_BLOCK id="1" name="weapon1"  put= "0" get="0" useable_id="1"/>
+    <INVENTORY_BLOCK id="2" name="weapon2"  put= "0" get="0" useable_id="2"/>
+  </INVENTORY_BLOCKS>
+
+  <TILESET name="Default">
+    <IMG SRC="Terrain/default.gif"/>
+    <TILE id="0"  name="default_floor"              type="floor" />
+    <TILE id="1"  name="null_floor"                 type="floor" />
+    <TILE id="2"  name="disabled_wall_left"         type="left"  />
+    <TILE id="3"  name="disabled_wall_right"        type="right" />
+    <TILE id="4"  name="disabled_object"            type="object"/>
+  </TILESET>
+
+</UFO_DEFAULTS>

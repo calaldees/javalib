@@ -1,0 +1,24 @@
+package Dune2.MapEdit;
+
+import Tile.Map.MapFoundationEditable;
+import MapEdit.Tools.MapTool;
+import MapEdit.Tools.MapToolEvent;
+import Dune2.terrain.Dune2Tile;
+import Dune2.Utils.TileEdger;
+
+
+public class MapToolBrushAutoEdge extends MapTool {
+  
+  public MapToolBrushAutoEdge() {super("EdgeBrush",null,false,true);}
+
+  public void apply(MapToolEvent e) {
+    MapFoundationEditable map = e.getMap();
+    //map.mergeTile(getSelectedTile(),map.getCursor());
+    if (getSelectedTile()==null) {return;}
+    Dune2Tile.TileType tile_type = ((Dune2Tile)getSelectedTile().getLayer(Dune2Tile.tile_layer)).getType();
+    e.getMapComponent().repaint( 
+      TileEdger.setTile(map,map.getCursor(),tile_type)
+    );
+  }
+
+}  

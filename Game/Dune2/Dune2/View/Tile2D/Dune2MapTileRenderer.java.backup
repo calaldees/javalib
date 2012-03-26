@@ -1,0 +1,68 @@
+package Dune2.View.Tile2D;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.image.ImageObserver;
+
+import Utils.StringIndexedValues;
+import Utils.Types.Integer.BoundingFlags;
+import Utils.Types.Sprite;
+import Utils.XML.XMLLoad.LoadManager;
+
+import Tile.View.Cursor.Cursor2D;
+import Tile.Map.MapFoundationTile;
+import Tile.View.MapFoundation.AbstractMapRenderer;
+import Tile.View.MapFoundation.AbstractMapTileRenderer;
+
+import Dune2.terrain.Dune2Tile;
+
+
+
+public class Dune2MapTileRenderer extends AbstractMapTileRenderer {
+
+  private Cursor2D cursor_type = LoadManager.getItem(Cursor2D.class,"select");
+  
+  private static enum SelectionSprites {
+    LEFT    (LoadManager.getItem(Cursor2D.class,"selection_left")  ),
+    RIGHT   (LoadManager.getItem(Cursor2D.class,"selection_right") ),
+    TOP     (LoadManager.getItem(Cursor2D.class,"selection_top")   ),
+    BOTTOM  (LoadManager.getItem(Cursor2D.class,"selection_bottom")),
+    INBOUNDS(LoadManager.getItem(Cursor2D.class,"highlight_green") );
+    private final Sprite s;
+    SelectionSprites(Cursor2D c) {s = c.getCursor();}
+    public Sprite getSprite() {return s;}
+  }
+
+  
+  //public Dune2MapTileRenderer() {}
+
+  public void render(Graphics g, ImageObserver io, MapFoundationTile t, StringIndexedValues options, boolean cursor, BoundingFlags selection_flags, MapFoundationTile tile_overlay) {
+    if (tile_overlay!=null) {
+      if (t!=null) {
+        t = t.getCopy();
+        t.mergeTile(tile_overlay);
+      }
+      else {t = tile_overlay;}
+    }
+    
+    if (t!=null) {
+      Dune2Tile tile = (Dune2Tile) t.getLayer(Dune2Tile.tile_layer);
+      if (tile!=null) {tile.getSprite().render(g,io);}
+    }
+    paintSelectionBounds(g,io,selection_flags);
+    if (cursor) {cursor_type.getCursor().render(g,io);}
+  }
+
+  public Dimension getComponentSize(MapFoundationTile t, StringIndexedValues options) {
+    return new Dimension(AbstractMapRenderer.X_JUMP, AbstractMapRenderer.Y_JUMP);
+  }
+  
+  private void paintSelectionBounds(Graphics g, ImageObserver io, BoundingFlags flags) {
+    //System.out.println(flags.toString());
+    if (flags.inbounds) {SelectionSprites.INBOUNDS.getSprite().render(g,io);}
+    if (flags.left    ) {SelectionSprites.LEFT.getSprite().render(g,io);}
+    if (flags.right   ) {SelectionSprites.RIGHT.getSprite().render(g,io);}
+    if (flags.top     ) {SelectionSprites.TOP.getSprite().render(g,io);}
+    if (flags.bottom  ) {SelectionSprites.BOTTOM.getSprite().render(g,io);}
+  }
+}

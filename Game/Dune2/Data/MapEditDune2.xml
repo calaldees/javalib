@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+<!DOCTYPE MapEditDune2 [
+  <!ENTITY default    SYSTEM "Dune2.xml">
+  <!ENTITY MapEditGUI SYSTEM "../../../Tools/MapEdit/Config/MapEditGUI.xml">
+]>
+-->
+
+<MapEditDune2>
+  <!--
+  &default;
+  &MapEditGUI;
+  -->
+  <?link: ./Dune2.xml?>
+  <?link: C:/Code/javalib/lib/Tile/MapEdit/Config/MapEditGUI.xml?>
+</MapEditDune2>

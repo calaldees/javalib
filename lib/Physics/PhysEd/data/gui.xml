@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<GUI>
+
+<IMG SRC="icons.gif">
+  <NameLookup name="New"         location="0,0"/>
+  <NameLookup name="Open"        location="1,0"/>
+  <NameLookup name="Save"        location="2,0"/>
+  <NameLookup name="Print"       location="3,0"/>
+  <NameLookup name="Preferences" location="4,0"/>
+  <NameLookup name="Material"    location="5,0"/>
+  <NameLookup name="Play"        location="6,0"/>
+  <NameLookup name="Pause"       location="7,0"/>
+  <NameLookup name="Stop"        location="8,0"/>
+  <NameLookup name="Undo"        location="0,1"/>
+  <NameLookup name="Redo"        location="1,1"/>
+  <NameLookup name="Cut"         location="2,1"/>
+  <NameLookup name="Copy"        location="3,1"/>
+  <NameLookup name="Paste"       location="4,1"/>
+  <NameLookup name="Erase"       location="5,1"/>
+  <NameLookup name="Point"       location="0,2"/>
+  <NameLookup name="Move"        location="1,2"/>
+  <NameLookup name="Select"      location="2,2"/>
+  <NameLookup name="Brush"       location="3,2"/>
+  <NameLookup name="Rubber"      location="4,2"/>
+  <NameLookup name="Fill"        location="5,2"/>
+
+  <NameLookup name="View Stress"         location="0,3"/>
+  <NameLookup name="View Stress pressed" location="0,4"/>
+  <NameLookup name="Anti Alias"          location="1,3"/>
+  <NameLookup name="Anti Alias pressed"  location="1,4"/>
+  <NameLookup name="View Mass"           location="2,3"/>
+  <NameLookup name="View Mass pressed"   location="2,4"/>
+  <NameLookup name="View Force"          location="3,3"/>
+  <NameLookup name="View Force pressed"  location="3,4"/>
+
+
+  <NameLookup name="Add"        location="0,5"/>
+  <NameLookup name="Add_all"    location="1,5"/>
+  <NameLookup name="Remove"     location="2,5"/>
+  <NameLookup name="Remove_all" location="3,5"/>
+
+  <NameLookup name="edit"       location="5,5"/>
+  <NameLookup name="Up Layer"   location="6,5"/>
+  <NameLookup name="Down Layer" location="7,5"/>
+</IMG>
+
+
+<JMenuBar name="Physics">
+  <JMenu name="File">
+    <JMenuItem name="New"  shortcut="N"/>
+    <JMenuItem name="Open" shortcut="O"/>
+    <JMenuItem name="Save" shortcut="S"/>
+    <JSeparator/>
+    <JMenuItem name="Exit"/>
+  </JMenu>
+  <JMenu name="Edit">
+    <JMenuItem name="Undo" shortcut="Z"/>
+    <JMenuItem name="Redo" shortcut="Y"/>
+    <JSeparator/>
+    <JMenuItem name="Cut"   shortcut="X"/>
+    <JMenuItem name="Copy"  shortcut="C"/>
+    <JMenuItem name="Paste" shortcut="V"/>
+  </JMenu>
+  <JMenu name="View">
+    <JMenuItem name="View Stress" type="toggle"/>
+    <JMenuItem name="View Mass"   type="toggle"/>
+    <JMenuItem name="View Force"  type="toggle"/>
+  </JMenu>
+  <JMenu name="Options">
+    <JMenuLookAndFeel/>
+  </JMenu>
+</JMenuBar>
+
+<JToolBar name="Physics">
+  <JSlider      name="Gravity" minimum="0" maximum="10" value="0" width="60" PaintLabels="false" PaintTrack="true" PaintTicks="true" SnapToTicks="true" MinorTickSpacing="1"/>
+  <JSeparator/>
+  <JToolBarItem name="Play" />
+  <JToolBarItem name="Pause"/>
+  <JToolBarItem name="stop" />
+  <JSeparator/>
+  <JToolBarItem name="Undo"/>
+  <JToolBarItem name="Redo"/>
+  <JSeparator/>
+  <JToolBarItem name="Point"  type="toggle" group="tool"/>
+  <JToolBarItem name="Brush"  type="toggle" group="tool"/>
+  <JToolBarItem name="Erase"  type="toggle" group="tool"/>
+  <JToolBarItem name="Select" type="toggle" group="tool"/>
+  <JToolBarItem name="Move"   type="toggle" group="tool"/>
+  <JToolBarItem name="Fill"   type="toggle" group="tool"/>
+</JToolBar>
+
+
+</GUI>

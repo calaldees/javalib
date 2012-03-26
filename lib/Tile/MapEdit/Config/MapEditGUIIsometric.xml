@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE MapEditGUIIsometric [
+  <!ENTITY GUI SYSTEM "MapEditGUI.xml">
+]>
+
+
+
+<GUIIsometric>
+
+  &GUI;
+  <!-- <?link: ./MapEditGUI.xml?> -->
+  
+  <JMenu name="View">
+    <JMenuItem name="Single Layer" type="toggle" shortcut="L"/>
+    <JMenuItem name="Hide Walls"   type="toggle"/>
+    <JMenuItem name="Hide Objects" type="toggle"/>
+  </JMenu>
+  
+  <JToolBar name="Isometric">
+    <JToolBarItem name="Up Layer"/>
+    <JToolBarItem name="Down Layer"/>
+    <JSlider      name="MapLayer" minimum="0" maximum="4" value="0" width="60" PaintLabels="false" PaintTrack="true" PaintTicks="true" SnapToTicks="true" MinorTickSpacing="1"/>
+    <JSeparator/>
+    <JToolBarItem name="Single Layer" type="toggle"/>
+    <JToolBarItem name="Hide Walls"   type="toggle"/>
+    <JToolBarItem name="Hide Objects" type="toggle"/>
+  </JToolBar>
+  
+</GUIIsometric>

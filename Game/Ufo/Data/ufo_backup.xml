@@ -1,0 +1,77 @@
+<?xml version="1.0" standalone="no" ?>
+
+<!DOCTYPE ufobackup [
+  <!ENTITY defaults SYSTEM "defaults.xml">
+  <!ENTITY GUI      SYSTEM "icons/GUI.xml">
+  <!ENTITY units    SYSTEM "Units/units_xcom.xml">
+  <!ENTITY terrain  SYSTEM "Terrain/barn.xml">
+]>
+
+
+<UFO>
+
+&defaults;
+&GUI;
+&units;
+&terrain;
+
+<!-- 
+Music possibilitys 
+ - Castlevania - Symphony of the Night OST\17 - Abandoned Pit.mp3 
+
+Generic needed features (for C&C + Dune 2)
+-Large Unit Support
+-AI (framework)
+-Pathfinding
+
+Differnt heads (moveable gfx touches)
+
+Rotate 90deg steps
+3D + voxels!! (this will take WORK!!!!!)
+ASCII (for a laugh)
+
+Non Visual Creaturs (smell, heat?)
+Physics (building stability)
+Re-enforcements?
+Event system
+ -multiplayer types
+ -single player (rescue? escort?)
+Vericles?
+ -Tanks? APC? Ships!
+ -Interceptor/helecopter mission support?
+ -steal ships?
+Mothership (mobile base)
+ -Houses interceptors/skyrangers
+Speech bubbles (multiplayer) thought bubbles (psyonics)
+ 
+Single player
+ - UFO Original
+ - TFTD (not high priority, should be easy to implement)
+ - UFO Extended (Merge TFTD + UFO)
+   - Extended Research Tree + Tech
+     -Cyber
+     -Genetic
+     -Troop Types?
+       -soldure
+       -ninja (black ops)
+       -enginear(steal E115 + other components, disable UFO tracking systems, Bomb?)
+       -pilot (earth+ufo?)
+       -psy?
+ - Missons
+   - Terror (re-enforcements? alien+xcom)
+   - Base (Destry base compoennts + personel, Rescue)
+   - Espionarge
+   - Air to air Hook (capture ship?)
+   - Rescue/protect? (president?)
+
+Multiplayer
+-Team (pointmatch)
+-Mission (escort, suvive, last man standing)
+-CTF
+-Massive (100 players - 2 sides)
+ -single match
+ -campainge? CPU controls 2 sides in geoscape, everyone is just pawns
+
+-->
+
+</UFO>
