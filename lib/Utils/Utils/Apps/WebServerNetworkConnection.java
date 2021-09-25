@@ -55,6 +55,9 @@ public class WebServerNetworkConnection extends AbstractNetworkConnection {
 
   private void outHTML(String message) {
     try {
+      output.write("HTTP/1.0 200 OK\r\n");
+      output.write("Content-type: text/html; charset=utf-8\r\n");
+      output.write("\r\n");
       output.write("<html><head><title>MiniServer</title></head><body>\n");
       output.write(message);
       output.write("</body></html>");

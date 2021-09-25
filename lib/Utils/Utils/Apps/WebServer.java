@@ -13,7 +13,7 @@ public class WebServer implements ConnectionManager {
     else {
       System.out.println("Miniserver: "+args[0]);
       host_path = args[0]; //.replaceAll("\\\\", "\\\\\\\\");
-      new WebServer(80);
+      new WebServer(8000);
     }
   }
   
