@@ -23,7 +23,7 @@ public class WebServerNetworkConnection extends AbstractNetworkConnection {
   }
   
   private void getRequest(String request_string) {
-    request_string = server_host_path + request_string.replaceAll("%20", " ");
+    request_string = server_host_path + request_string.replaceAll("%20", " ").split("\\?")[0];
     File request = new File(request_string);
     log(request.toString());
     if (!request.exists()     ) {outHTML(request.toString()+" does not exisit");}
